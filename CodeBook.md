@@ -35,10 +35,10 @@ The variables included in the data set are:
 
       There are 30 subjects in the experiment, numbered 1 to 30.
       
-* <signal>-mean()
+* `<signal>`-mean()
       The average of the given <signal> for the given activity and subject  
       
-* <signal>-std()
+* `<signal>`-std()
       The standard deviation of th egiven <signal> for the given activity and subject
       
 The <signal> refers to the different signals as explained in features_info.txt referenced above.
