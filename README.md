@@ -1,7 +1,14 @@
 Getting and Cleaning Data - Course project
 ============================================
 Anne Siri K. Bekkelund<br>
-github.com/annesik
+github.com/annesik<br><br>
+
+Included in this repo are:
+* The run_analysis.R script - the main script that manipulates the data and returns a tidy data table
+* The download_file.R script - that can be run if the required data is not in the working directory
+* the tidy_data.txt file - the data table resulting from running the run_analysis.R script (the first row being the column names)
+* The CodeBook.md file - describing the contents of the tidy_data.txt file
+* The Readme.md file you are currently reading
 
 
 ##Requirements for running the run_analysis.R script
