@@ -1,6 +1,6 @@
 Getting and Cleaning Data - Course project
 ============================================
-Anne Siri K. Bekkelund
+Anne Siri K. Bekkelund<br>
 github.com/annesik
 
 
