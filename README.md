@@ -22,10 +22,12 @@ The run_analysis.R script checks whether the working directory has the required 
 
 ##The steps in the script
 
-###Relevant packages installed?
+###Step 0: Preparations
+
+Are relevant packages installed?
 The scripts starts by checking that the relevant package "plyr" is installed, and installs it if it is not installed. It also loads the package using the library() function.
 
-###Check that the required data is in the working directory
+Are the required data in the working directory?
 As explained above, the script will only work if the required data has been downloaded and extracted. If not, the script aborts, telling the user to run the download_file.R script first.
 
 ###Step 1: Read in the data files and merge the data sets
