@@ -54,8 +54,12 @@ To have a clean and tidy data set, i also drop the activity label column from th
 ###Step 4: Appropriately label the data set with descriptive variable names
 This was done as a part of step 1, after reading in the data.
 
-###Step 5: New data set and output
+###Step 5: New data set and writing output
 I use the ddply() function from the dplyr-package to calculate the average values for each activity and each subject.
 
 The script writes a tidy table to "tidy_data.txt" into the working directory.
-The first line of the resulting .txt-file gives the column names.
+
+##The output
+The output of this script is a file called "tidy_data.txt". The first line of the resulting .txt-file gives the column names.
+
+The CodeBook.md file in this repository explains the variables in the resulting data set.
