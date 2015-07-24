@@ -1,6 +1,12 @@
-#Installing relevant libraries
-#install.packages("data.table")
-#library(data.table)
+#Checking that relevant libraries are installed, install and require them if not
+
+a<-installed.packages()
+packages<-a[,1] 
+if(!(is.element("plyr", packages))){
+      install.packages("plyr")
+}
+
+library(plyr)
 
 #Check that the required data is in the working directory
 
@@ -31,6 +37,8 @@ if(sum(DT$notExists)>0){
 rm(requiredFiles)
 rm(DT)
 
+#STEP 1:
+
 #Read in all the data files
 
 # 1: TRAIN data:
@@ -48,7 +56,7 @@ activity_labels<-read.table("UCI HAR Dataset/activity_labels.txt")
 colnames(activity_labels)<-c("act_label","act_name")
 features<-read.table("UCI HAR Dataset/features.txt")
 
-#Name the columns in the datasets:
+#Name the columns in the datasets (STEP 4 in the assignment):
 colnames(TE_subject_test)[1]<-"subject"
 colnames(TE_y_test)[1]<-"act_label"
 colnames(TE_x_test)<-features[,2]
@@ -58,22 +66,27 @@ colnames(TR_y_train)[1]<-"act_label"
 colnames(TR_x_train)<-features[,2]
 
 
-#Put together the tables for subject, labels and the data itself for train and test data:
+#Put together the tables for subject, activity labels and the data itself for train and test data:
 TEST<-cbind(TE_subject_test,TE_y_test,TE_x_test)
 TRAIN<-cbind(TR_subject_train,TR_x_train,TR_y_train)
 
 #Put the test and train datasets together:
 FULL<-rbind(TEST,TRAIN)
 
+#STEP 2:
+
 #Find the columns containing means and standard deviations:
 #First, create the logical vector of columns whose name contains "mean()" or "std()"
-meanCols<-grepl("mean()",colnames(FULL))
-stdCols<-grepl("std()",colnames(FULL))
+meanCols<-grepl("mean()",colnames(FULL),fixed=TRUE)
+stdCols<-grepl("std()",colnames(FULL),fixed=TRUE)
 relevantCols<-meanCols | stdCols
 
 #Picks out the columns we want to keep: Subject identifier, activity label 
 #and the means and standard devaitions
 TestAndTrain<-cbind(FULL[,1:2], FULL[,relevantCols])
+
+
+#STEP 3:
 
 #Add the descriptive activity names:
 DATASET<-merge(activity_labels, TestAndTrain, by="act_label")
@@ -81,9 +94,10 @@ DATASET<-merge(activity_labels, TestAndTrain, by="act_label")
 #Drop the activity label, redundant since we have the name
 DATASET$act_label<-NULL
 
+#STEP 5:
+      
 #Calculate the average of each variable, for each activity and subject
-require(plyr)
-DF<-ddply(DATASET, c("act_name","subject"),function(x) colMeans(x[3:81]))
+DF<-ddply(DATASET, c("act_name","subject"),function(x) colMeans(x[3:68]))
 
 write.table(DF,file="tidy_data.txt",row.names = FALSE)
 #write.csv(DF,file="tidy_data.csv",row.names = FALSE)
