@@ -1,4 +1,4 @@
-Requirements for running the run_analysis.R script
+##Requirements for running the run_analysis.R script
 
 * The run_analysis.R script will only work if the required data has been downloaded and extracted.
 

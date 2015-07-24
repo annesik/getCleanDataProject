@@ -34,30 +34,12 @@ rm(DT)
 #Read in all the data files
 
 # 1: TRAIN data:
-
-#This is the ACTUAL codeline that I want in the final script:
-##TR_x_train<-read.table("UCI HAR Dataset/train/X_train.txt")
-
-#This is how I saved the object the first time I made it:
-##saveRDS(TR_x_train ,file="temp_x_train.rds")
-
-#This codeline should be deleted in the final script:
-TR_x_train<-readRDS(file="temp_x_train.rds")
-
+TR_x_train<-read.table("UCI HAR Dataset/train/X_train.txt")
 TR_y_train<-read.table("UCI HAR Dataset/train/y_train.txt")
 TR_subject_train<-read.table("UCI HAR Dataset/train/subject_train.txt")
 
 # 2: TEST data:
-
-#This is the ACTUAL codeline that I want in the final script:
-#TE_x_test<-read.table("UCI HAR Dataset/test/X_test.txt")
-
-#This is how I saved the object the first time I made it:
-#TE_saveRDS(x_test ,file="temp_x_test.rds")
-
-#This codeline should be deleted in the final script:
-TE_x_test<-readRDS(file="temp_x_test.rds")
-
+TE_x_test<-read.table("UCI HAR Dataset/test/X_test.txt")
 TE_y_test<-read.table("UCI HAR Dataset/test/y_test.txt")
 TE_subject_test<-read.table("UCI HAR Dataset/test/subject_test.txt")
 
