@@ -1,3 +1,9 @@
+Getting and Cleaning Data - Course project
+============================================
+Anne Siri K. Bekkelund
+github.com/annesik
+
+
 ##Requirements for running the run_analysis.R script
 
 * The run_analysis.R script will only work if the required data has been downloaded and extracted.
